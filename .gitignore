@@ -141,3 +141,7 @@ fabric.properties
 
 .DS_Store
 
+.idea/markdown-navigator/
+.idea/minicourse-ajax-project.iml
+.idea/modules.xml
+.idea/vcs.xml

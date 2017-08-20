@@ -1,10 +1,10 @@
 function loadData() {
 
-    var $body = $('body');
-    var $wikiElem = $('#wikipedia-links');
-    var $nytHeaderElem = $('#nytimes-header');
-    var $nytElem = $('#nytimes-articles');
-    var $greeting = $('#greeting');
+    let $body = $('body');
+    let $wikiElem = $('#wikipedia-links');
+    let $nytHeaderElem = $('#nytimes-header');
+    let $nytElem = $('#nytimes-articles');
+    let $greeting = $('#greeting');
 
     // clear out old data before new request
     $wikiElem.text("");
@@ -13,26 +13,28 @@ function loadData() {
     // load streetview
 
     // YOUR CODE GOES HERE!
-    var streetStr = $('#street').val()
-    var cityStr = $('#city').val()
-    var imgSrc = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + streetStr + "," + cityStr;
+    let streetStr = $('#street').val();
+    let cityStr = $('#city').val();
+    let imgSrc = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + streetStr + "," + cityStr;
     $body.append('<img class="bgimg" src=' + imgSrc + '/>');
 
     // New York Times
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+    let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
     url += $.param({
         'api_key': "cf9c7b4041244e59b05931de84704d5e"
     });
 
     $.getJSON(url, function (data) {
-        var headline;
-        var snippet;
-        var link;
-        var mainHeadline;
-        var doc;
+        let docs;
+        let headline;
+        let snippet;
+        let link;
+        let mainHeadline;
+        let doc;
+        let items;
 
-        var items = [];
-        var docs = data["response"]["docs"];
+        items = [];
+        docs = data["response"]["docs"];
         for (doc of docs) {
             link = doc["web_url"];
             snippet = doc["snippet"];
@@ -42,10 +44,11 @@ function loadData() {
             items.push('<li class="article">');
             items.push('<a href="' + link + '">' + mainHeadline + '</a>' );
             items.push('<p>' + snippet + '</p>');
+            items.push('</li>');
         }
 
         $("#nytimes-articles").append(items.join(""));
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
     });
     return false;
 }
