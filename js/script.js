@@ -1,4 +1,3 @@
-
 function loadData() {
 
     var $body = $('body');
@@ -14,6 +13,10 @@ function loadData() {
     // load streetview
 
     // YOUR CODE GOES HERE!
+    var streetStr = $('#street').val()
+    var cityStr = $('#city').val()
+    var imgSrc = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location="+streetStr+","+cityStr;
+    $body.append('<img class="bgimg" src='+imgSrc+'/>');
 
     return false;
 };
