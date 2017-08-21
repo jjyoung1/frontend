@@ -52,6 +52,8 @@ function loadData() {
 
         $("#nytimes-articles").append(items.join(""));
         // console.log(JSON.stringify(data));
+    }).fail(function () {
+        $('#nytimes-header').append(' Could Not Be Loaded');
     });
     return false;
 }
