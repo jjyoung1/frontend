@@ -16,7 +16,8 @@ function loadData() {
     let streetStr = $('#street').val();
     let cityStr = $('#city').val();
     let imgSrc = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + streetStr + "," + cityStr;
-    $body.append('<img class="bgimg" src=' + imgSrc + '/>');
+    let urlPhoto = '<img class="bgimg" src="' + imgSrc + '">'
+    $body.append('<img class="bgimg" src="' + imgSrc + '">');
 
     // New York Times
     let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
