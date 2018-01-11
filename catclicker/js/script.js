@@ -10,6 +10,11 @@
             "name": "cat2",
             "photo": "cat2.jpg",
             "counter": 0
+        },
+        {
+            "name": "cat3",
+            "photo": "cat3.jpg",
+            "counter": 0
         }
     ];
 
