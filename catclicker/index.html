@@ -8,16 +8,20 @@
 </head>
 <body>
 <h1>Cat Clicker</h1>
-<div id="menu">
-    <ul id="cat_menu">
-
-    </ul>
+<div id="navbar">
+    <script type="text/template" data-template="cat-button">
+        <button data-id="{{catid}}">{{catname}}</button>
+    </script>
+    <div id="catbuttons"><p>Should Disappear</p> </div>
 </div>
 <div id="main">
+    <script type="text/template" data-template="cat_template">
+        <h2 id="cat-id">{{catname}}</h2>
+        <p>Votes: {{catvotes}}</p>
+        <img id="cat-img" src="{{catphoto}}" alt="Photo of {{catname}}">
+    </script>
+    <div id="cat-candidate">Hmmm</div>
 
-</div>
-<h2>Please click your favorite cat!</h2>
-<div id="cats">
 </div>
 <script src="js/script.js"></script>
 </body>
