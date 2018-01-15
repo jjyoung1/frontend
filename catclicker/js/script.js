@@ -38,11 +38,6 @@
                 "photo": "image/cat7.jpeg",
                 "counter": 0
             },
-            {
-                "name": "cat8",
-                "photo": "image/cat3.jpg",
-                "counter": 0
-            }
         ]
     };
 
@@ -91,7 +86,7 @@
             // Populate the buttons in the view
             for (i = 0; i < cats.length; i++) {
                 cat = cats[i];
-                listElem = document.createElement("li");
+                listElem = document.createElement("button");
                 listElem.innerHTML = cat.name;
 
                 listElem.addEventListener("click", (function (cat) {
