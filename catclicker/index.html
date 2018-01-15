@@ -9,19 +9,12 @@
 <body>
 <h1>Cat Clicker</h1>
 <div id="navbar">
-    <script type="text/template" data-template="cat-button">
-        <button data-id="{{catid}}">{{catname}}</button>
-    </script>
-    <div id="catbuttons"><p>Should Disappear</p> </div>
+    <ul id="catlist"></ul>
 </div>
-<div id="main">
-    <script type="text/template" data-template="cat_template">
-        <h2 id="cat-id">{{catname}}</h2>
-        <p>Votes: {{catvotes}}</p>
-        <img id="cat-img" src="{{catphoto}}" alt="Photo of {{catname}}">
-    </script>
-    <div id="cat-candidate">Hmmm</div>
-
+<div id="candidate">
+    <h2 id="cat-name"></h2>
+    <p>Current Votes: <span id="cat-count"></span></p>
+    <img id="cat-image" src="" alt="cat picture">
 </div>
 <script src="js/script.js"></script>
 </body>
