@@ -153,6 +153,7 @@
                     cat.counter = parseInt(form_copy.counter.value);
                     cat_view.render();
                     admin_view.render();
+                    return false;
                 }
             })(this.form));
             this.render();
