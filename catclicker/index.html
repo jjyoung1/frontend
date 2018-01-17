@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cat Clicker</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 </head>
 <body>
 <h1>Cat Clicker</h1>
@@ -16,6 +16,26 @@
     <p>Current Votes: <span id="cat-count"></span></p>
     <img id="cat-image" src="" alt="cat picture">
 </div>
+<button id="admin_button">Admin</button>
+<div id="admin" class="admin">
+    <form id="catform">
+        <div>
+            <label for="name">Cat's Name:</label>
+            <input id="name" type="text" name="name">
+        </div>
+        <div>
+            <label for="counter">Number of Votes:</label>
+            <input id="counter" type="text" name="counter">
+        </div>
+        <div>
+            <label for="image_url">Url of image</label>
+            <input id="image_url" type=text" name="image_url">
+        </div>
+        <button id="save">Save</button>
+        <button id="cancel">Cancel</button>
+    </form>
+</div>
+
 <script src="js/script.js"></script>
 </body>
 </html>

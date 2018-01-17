@@ -1,4 +1,4 @@
-(function () {
+// (function () {
     var model = {
         current_cat: null,
 
@@ -54,7 +54,13 @@
 
         setCurrentCat: function (cat) {
             model.current_cat = cat;
-            cat_view.render();
+        },
+
+        saveCat: function (cat) {
+            var c = this.getCurrentCat();
+            c.name = cat.name;
+            c.photo = cat.image_url;
+            c.counter - cat.counter;
         },
 
         init: function () {
@@ -62,6 +68,7 @@
 
             nav_view.init();
             cat_view.init();
+            admin_view.init();
         }
     };
 
@@ -119,12 +126,44 @@
         },
 
         render: function () {
-            cat = controller.getCurrentCat()
-            this.catNameElem.innerText = cat.name;
-            this.catCountElem.innerText = cat.counter;
+            var cat = controller.getCurrentCat();
+            this.catNameElem.textElement = cat.name;
+            this.catCountElem.textElement = cat.counter;
             this.catImgElem.src = cat.photo;
         }
     };
 
+    var admin_view = {
+        init: function () {
+            this.view = document.getElementById('admin');
+            this.admin_button = document.getElementById('admin_button');
+            this.form = document.getElementById('catform');
+            this.name = this.form.name;
+            this.counter = this.form.counter;
+            this.image_url = this.form.image_url;
+            this.save_button = document.getElementById('save');
+            this.cancel_button = document.getElementById('cancel');
+
+            // Attach events to Submit and Reset buttons
+            this.save_button.addEventListener("click", (function (form_copy) {
+                return function () {
+                    cat = controller.getCurrentCat();
+                    cat.name = form_copy.name.value;
+                    cat.photo = form_copy.image_url.value;
+                    cat.counter = parseInt(form_copy.counter.value);
+                    cat_view.render();
+                    admin_view.render();
+                }
+            })(this.form));
+            this.render();
+        },
+
+        render: function () {
+            var cat = controller.getCurrentCat();
+            this.name.value = cat.name;
+            this.counter.value = cat.counter;
+            this.image_url.value = cat.photo;
+        }
+    };
     controller.init();
-})();
+// })();
